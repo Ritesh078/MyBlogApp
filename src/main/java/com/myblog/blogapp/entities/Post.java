@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data //it generates getters & Setters
 @NoArgsConstructor //create constructor without parameter
@@ -29,6 +31,9 @@ public class Post {
     @Lob //this annotation help us to store huge amount of data in it
     @Column(name="content",nullable = false)
     private String content; // String allowed 255 Characters
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true) //mapping with Comments entity
+    Set<Comment> comments = new HashSet<>();
 
 
 
