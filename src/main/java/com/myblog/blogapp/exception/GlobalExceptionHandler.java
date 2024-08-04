@@ -28,7 +28,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     //Global Exception
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorDetails> handleAllException(
+<<<<<<< HEAD
             Exception exception,
+=======
+            ResourceNotFoundException exception,
+>>>>>>> aa615f6cd1a27e3c4a1a9306aef0ec395f0f93a7
             WebRequest webRequest)
     {
         ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(),
